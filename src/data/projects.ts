@@ -45,7 +45,7 @@ export const projects: Project[] = [
     learnings:
       'Learned the importance of prompt engineering for consistent AI outputs and gained deep experience with serverless architecture patterns. Understanding of cost optimization in AI workloads.',
     color: 'lime',
-    githubUrl: 'https://github.com/Aibuedefe-bot/AI-Powered-Serverless-Resume-Screener-Real-Time-Scalable-',
+    githubUrl: 'https://github.com/TheErujeje/AI-Powered-Serverless-Resume-Screener-Real-Time-Scalable-',
     demoUrl: '#',
     status: 'Paused',
     version: 'v2.1.0',
