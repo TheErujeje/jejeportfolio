@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
@@ -15,6 +15,36 @@ export function Navigation() {
   })
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('')
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['hero', 'about', 'skills', 'projects', 'contact']
+      const scrollPosition = window.scrollY + window.innerHeight / 2
+      
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId)
+        if (element) {
+          const { offsetTop, offsetHeight } = element
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(sectionId)
+            break
+          }
+        }
+      }
+    }
+    
+    const timer = setTimeout(() => {
+      handleScroll()
+      window.addEventListener('scroll', handleScroll)
+    }, 1000)
+    
+    return () => {
+      clearTimeout(timer)
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+  
   const handleNavClick = () => setIsMenuOpen(false)
 
   return (
@@ -36,11 +66,13 @@ export function Navigation() {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex gap-8 font-mono text-sm items-center">
-          {['About', 'Skills', 'Projects', 'Contact'].map((item) => (
+          {['Home', 'About', 'Skills', 'Projects', 'Contact'].map((item) => (
             <Link
               key={item}
-              href={`#${item.toLowerCase()}`}
-              className="hover:text-lime-400 transition-colors"
+              href={`#${item === 'Home' ? 'hero' : item.toLowerCase()}`}
+              className={`hover:text-lime-400 transition-colors ${
+                activeSection === (item === 'Home' ? 'hero' : item.toLowerCase()) ? 'text-lime-400' : ''
+              }`}
             >
               &lt;{item} /&gt;
             </Link>
@@ -68,15 +100,17 @@ export function Navigation() {
           className="fixed inset-0 z-30 bg-zinc-950 pt-24 px-6 md:hidden"
         >
           <div className="flex flex-col gap-8 text-2xl font-black">
-            {['About', 'Skills', 'Projects', 'Contact'].map((item) => (
+            {['Home', 'About', 'Skills', 'Projects', 'Contact'].map((item) => (
               <Link
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                href={`#${item === 'Home' ? 'hero' : item.toLowerCase()}`}
                 onClick={handleNavClick}
-                className="hover:text-lime-400 transition-colors flex items-center gap-4"
+                className={`hover:text-lime-400 transition-colors flex items-center gap-4 ${
+                  activeSection === (item === 'Home' ? 'hero' : item.toLowerCase()) ? 'text-lime-400' : ''
+                }`}
               >
                 <span className="text-lime-400 text-sm font-mono">
-                  0{['About', 'Skills', 'Projects', 'Contact'].indexOf(item) + 1}
+                  0{['Home', 'About', 'Skills', 'Projects', 'Contact'].indexOf(item) + 1}
                 </span>
                 {item}
               </Link>
