@@ -72,8 +72,8 @@ export function About() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           <div className="space-y-6 text-lg text-zinc-300 dark:text-zinc-300 light:text-zinc-700 leading-relaxed">
             <p>
-              <strong className="text-white dark:text-white light:text-zinc-900">Official Bio:</strong> I&apos;m a Full
-              Stack Developer and AI Engineer with a passion for building
+              <strong className="text-white dark:text-white light:text-zinc-900">Official Bio:</strong> I&apos;m a 
+              Software Developer and AI Engineer with a passion for building
               scalable, intelligent systems. I specialize in the Python
               ecosystem, React frontends, and cloud infrastructure.
             </p>
