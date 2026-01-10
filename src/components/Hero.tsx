@@ -81,7 +81,7 @@ export function Hero({ onAnimationComplete, skipAnimation = false }: HeroProps) 
 
           {skipAnimation ? (
             <p className="text-xl md:text-2xl text-zinc-400 mb-12 leading-relaxed">
-              Full-stack developer, AI enthusiast, and problem solver. I turn complex systems into smart solutions and make browsers dance to my code
+              Software developer, AI enthusiast, and problem solver. I turn complex systems into smart solutions and make browsers dance to my code
               <span className="block mt-4 text-fuchsia-400 font-mono text-lg">
                 {/* You can just call me "Jeje" because life is too short for long names. */}
               </span>
@@ -93,8 +93,7 @@ export function Hero({ onAnimationComplete, skipAnimation = false }: HeroProps) 
               transition={{ delay: 3.5, duration: 0.8 }}
               className="text-xl md:text-2xl text-zinc-400 mb-12 leading-relaxed"
             >
-              Full-stack sorcerer, AI whisperer, and professional bug hunter. I
-              teach rocks how to think (AI) and make browsers do backflips.
+              Software developer, AI enthusiast, and problem solver. I turn complex systems into smart solutions and make browsers dance to my code
               <span className="block mt-4 text-fuchsia-400 font-mono text-lg">
                 {/* You can just call me "Jeje" because life is too short for long names. */}
               </span>
