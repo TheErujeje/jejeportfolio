@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
-import { ThemeToggle } from './ThemeToggle'
 
 export function Navigation() {
   const { scrollYProgress } = useScroll()
@@ -77,14 +76,12 @@ export function Navigation() {
               &lt;{item} /&gt;
             </Link>
           ))}
-          <ThemeToggle />
         </div>
 
         {/* Mobile Menu Toggle */}
-        <div className="md:hidden flex items-center gap-4">
-          <ThemeToggle />
+        <div className="md:hidden">
           <button
-            className="text-white dark:text-white light:text-zinc-900"
+            className="text-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X /> : <Menu />}
