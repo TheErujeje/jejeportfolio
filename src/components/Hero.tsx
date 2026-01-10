@@ -65,8 +65,7 @@ export function Hero() {
             Full-stack sorcerer, AI whisperer, and professional bug hunter. I
             teach rocks how to think (AI) and make browsers do backflips.
             <span className="block mt-4 text-fuchsia-400 font-mono text-lg">
-              // You can just call me &quot;Jeje&quot; because life is too short for long
-              names.
+              {/* You can just call me "Jeje" because life is too short for long names. */}
             </span>
           </motion.p>
 
