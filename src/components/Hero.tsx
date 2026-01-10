@@ -81,8 +81,7 @@ export function Hero({ onAnimationComplete, skipAnimation = false }: HeroProps) 
 
           {skipAnimation ? (
             <p className="text-xl md:text-2xl text-zinc-400 mb-12 leading-relaxed">
-              Full-stack sorcerer, AI whisperer, and professional bug hunter. I
-              teach rocks how to think (AI) and make browsers do backflips.
+              Full-stack developer, AI enthusiast, and problem solver. I turn complex systems into smart solutions and make browsers dance to my code
               <span className="block mt-4 text-fuchsia-400 font-mono text-lg">
                 {/* You can just call me "Jeje" because life is too short for long names. */}
               </span>
@@ -108,7 +107,7 @@ export function Hero({ onAnimationComplete, skipAnimation = false }: HeroProps) 
                 href="#projects"
                 className="px-8 py-4 bg-lime-400 text-zinc-900 font-bold font-mono hover:bg-lime-300 transition-colors border-b-4 border-lime-600 active:border-b-0 active:translate-y-1"
               >
-                SEE MY CHAOS
+                SEE MY WORK
               </Link>
               <Link
                 href="#contact"
@@ -128,7 +127,7 @@ export function Hero({ onAnimationComplete, skipAnimation = false }: HeroProps) 
                 href="#projects"
                 className="px-8 py-4 bg-lime-400 text-zinc-900 font-bold font-mono hover:bg-lime-300 transition-colors border-b-4 border-lime-600 active:border-b-0 active:translate-y-1"
               >
-                SEE MY CHAOS
+                SEE MY WORK
               </Link>
               <Link
                 href="#contact"
