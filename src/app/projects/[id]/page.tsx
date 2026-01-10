@@ -20,6 +20,18 @@ export default function ProjectDetail() {
   const id = params?.id as string
   const project = useMemo(() => projects.find((p) => p.id === id), [id])
 
+  const colors = useMemo(() => ({
+    lime: 'text-lime-400',
+    cyan: 'text-cyan-400',
+    fuchsia: 'text-fuchsia-400',
+  }), [])
+
+  const bgColors = useMemo(() => ({
+    lime: 'bg-lime-400',
+    cyan: 'bg-cyan-400',
+    fuchsia: 'bg-fuchsia-500',
+  }), [])
+
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -39,18 +51,6 @@ export default function ProjectDetail() {
       </div>
     )
   }
-
-  const colors = useMemo(() => ({
-    lime: 'text-lime-400',
-    cyan: 'text-cyan-400',
-    fuchsia: 'text-fuchsia-400',
-  }), [])
-
-  const bgColors = useMemo(() => ({
-    lime: 'bg-lime-400',
-    cyan: 'bg-cyan-400',
-    fuchsia: 'bg-fuchsia-500',
-  }), [])
 
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-100 selection:bg-lime-400 selection:text-zinc-900 pb-20">
