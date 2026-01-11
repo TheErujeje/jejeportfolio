@@ -118,15 +118,22 @@ export default function ProjectDetail() {
             <Github size={20} />
             SOURCE_CODE
           </a>
-          <a
-            href={project.demoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`flex items-center gap-2 px-6 py-3 ${bgColors[project.color]} text-zinc-900 font-bold font-mono rounded transition-all hover:-translate-y-1 hover:brightness-110`}
-          >
-            <ExternalLink size={20} />
-            LIVE_DEMO
-          </a>
+          {project.status === 'Live' ? (
+            <a
+              href={project.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex items-center gap-2 px-6 py-3 ${bgColors[project.color]} text-zinc-900 font-bold font-mono rounded transition-all hover:-translate-y-1 hover:brightness-110`}
+            >
+              <ExternalLink size={20} />
+              LIVE_DEMO
+            </a>
+          ) : (
+            <div className="flex items-center gap-2 px-6 py-3 bg-zinc-700 text-zinc-500 font-bold font-mono rounded cursor-not-allowed opacity-70">
+              <ExternalLink size={20} />
+              LIVE_DEMO
+            </div>
+          )}
         </motion.div>
 
         {/* Main Content Grid */}
