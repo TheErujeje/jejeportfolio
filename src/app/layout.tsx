@@ -4,8 +4,8 @@ import { Navigation } from '@/components/Navigation'
 import { ThemeProvider } from '@/contexts/ThemeContext'
 
 export const metadata: Metadata = {
-  title: 'Erujeje - Full Stack Developer & AI Engineer',
-  description: 'Portfolio of Erujeje (Jeje) - Full-stack sorcerer, AI whisperer, and professional bug hunter.',
+  title: "Erujeje's Porfolio Website",
+  description: 'Portfolio of Erujeje (Jeje) - Software Developer, AI Engineer, and professional bug hunter.',
   icons: {
     icon: '/icon.jpg',
   },
