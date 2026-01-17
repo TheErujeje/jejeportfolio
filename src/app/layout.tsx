@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { Navigation } from '@/components/Navigation'
 import { ThemeProvider } from '@/contexts/ThemeContext'
 
 export const metadata: Metadata = {
@@ -20,7 +19,6 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-zinc-950 dark:bg-zinc-950 light:bg-white min-h-screen text-zinc-100 dark:text-zinc-100 light:text-zinc-900 selection:bg-lime-400 selection:text-zinc-900 overflow-x-hidden">
         <ThemeProvider>
-          <Navigation />
           {children}
         </ThemeProvider>
       </body>

@@ -7,13 +7,15 @@ import { Linkedin, Github, MessageCircle } from 'lucide-react'
 export function Contact() {
   const [formData, setFormData] = useState({ from: '', subject: '', body: '' })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [message, setMessage] = useState({ text: '', type: '' })
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setMessage({ text: '', type: '' })
     
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbwkzwEGHPC1MbRbY9D-YlCbTt5uXzXCGyac9ar_WSjr8du-rMLSduqzkGVH6a8JE4jSyw/exec', {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbxHHdthRuZaFnYnzx8x-iUGK6-AoaLt_VscJAYiJ770JKlw_WuoivgG_oEJbrvysgFA4A/exec', {
         method: 'POST',
         mode: 'no-cors',
         headers: {
@@ -27,11 +29,12 @@ export function Contact() {
       })
       
       setFormData({ from: '', subject: '', body: '' })
-      alert('Message sent successfully!')
+      setMessage({ text: 'GIT PUSH SUCCESSFUL! Message deployed to inbox.', type: 'success' })
     } catch (error) {
-      alert('Failed to send message. Please try again.')
+      setMessage({ text: 'RESOLVE CONFLICT: Failed to push message. Please try again.', type: 'error' })
     } finally {
       setIsSubmitting(false)
+      setTimeout(() => setMessage({ text: '', type: '' }), 5000)
     }
   }
 
@@ -144,6 +147,20 @@ export function Contact() {
               </div>
             </div>
           </form>
+
+          {message.text && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className={`max-w-2xl mx-auto mb-16 p-4 rounded-lg border font-mono text-center ${
+                message.type === 'success' 
+                  ? 'bg-green-900/20 border-green-500 text-green-400' 
+                  : 'bg-red-900/20 border-red-500 text-red-400'
+              }`}
+            >
+              {message.text}
+            </motion.div>
+          )}
 
           <div className="flex justify-center gap-8">
             {[
