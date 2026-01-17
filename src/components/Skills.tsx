@@ -22,10 +22,10 @@ export function Skills() {
       title: 'Backend_Stack',
       skills: [
         'Python',
-        'Node.js',
-        'PostgreSQL',
         'FastAPI',
-        'Django',
+        'PostgreSQL',
+        'Flask',
+        'REST APIs',
         'GraphQL',
       ],
       color: 'text-fuchsia-400',
@@ -40,7 +40,7 @@ export function Skills() {
         'MLFlow',
         'LangChain',
         'Notebooks',
-        'Airflow',
+        'Strands',
         'Kafka'
       ],
       color: 'text-cyan-400',
