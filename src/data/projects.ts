@@ -1,5 +1,6 @@
 export interface Project {
   id: string
+  category: string
   title: string
   tagline: string
   description: string
@@ -16,11 +17,13 @@ export interface Project {
   status: 'Live' | 'Paused' | 'Offline'
   version: string
   license: string
+  repo: 'public' | 'private'
 }
 
 export const projects: Project[] = [
   {
     id: 'ai-resume-screener',
+    category: 'AI/ML',
     title: 'AI Resume Screener',
     tagline: 'Serverless AI-powered recruitment automation.',
     description:
@@ -50,10 +53,12 @@ export const projects: Project[] = [
     status: 'Paused',
     version: 'v2.1.0',
     license: 'MIT',
+    repo: 'public',
   },
   {
     id: 'scrumy',
-    title: 'Scrumy: AI Meeting Assistant',
+    category: 'AI/ML',
+    title: 'AI Meeting Assistant',
     tagline: 'TiDB Hackathon 2025 finalist with MCP integration.',
     description:
       'AI-Powered Meeting Assistant with TiDB & MCP Integration. Captures audio from video calls, processes it with AI, and automatically creates tasks in Notion and Slack.',
@@ -84,9 +89,11 @@ export const projects: Project[] = [
     status: 'Offline',
     version: 'v1.3.2',
     license: 'MIT',
+    repo: 'public',
   },
   {
     id: 'tech-blog',
+    category: 'Full Stack',
     title: 'Tech Gadget Website',
     tagline: 'Full-stack CMS with serverless backend.',
     description:
@@ -120,5 +127,120 @@ export const projects: Project[] = [
     status: 'Live',
     version: 'v1.0.8',
     license: 'MIT',
+    repo: 'public',
   },
+
+  {
+    id: 'chess-website',
+    category: 'Full Stack',
+    title: 'Chess Corner Website',
+    tagline: 'Modern chess platform with real-time gameplay.',
+    description:
+      'A modern chess platform featuring real-time multiplayer games, player ratings, and tournament management. Built with React, Node.js, and Socket.io for seamless gameplay experiences.',
+    fullDescription:
+      'An online chess platform that brings together chess enthusiasts worldwide. Features include real-time multiplayer matches, player ranking system, tournament organization, and a responsive design for all devices.',
+    problem:
+      'Existing chess platforms either lack real-time multiplayer capabilities or have outdated interfaces that don\'t engage modern players. There was a need for a platform that combines classic chess strategy with contemporary web technologies.',
+    solution:
+      'A full-stack chess platform using React for the frontend, Node.js with Express for the backend, and Socket.io for real-time communication between players. Includes a robust game engine and secure authentication system.',
+    features: [
+      'Real-time multiplayer chess games',
+      'Player rating system with ELO calculation',
+      'Tournament management and scheduling',
+      'Game replay and analysis tools',
+      'Mobile-responsive design',
+      'User authentication and profiles',
+      'Chat functionality during games',
+      'Statistics and performance tracking',
+      'Spectator mode for tournaments',
+      'Custom game settings and variants',
+    ],
+    techStack: ['React', 'FastAPI', 'Dynamodb','TypeScript', 'Tailwind CSS'],
+    challenges:
+      'Implementing a reliable real-time game state synchronization system. Handling concurrent game sessions and ensuring smooth gameplay across different network conditions.',
+    learnings:
+      'Developed expertise in real-time application development and socket programming. Gained experience in building scalable multiplayer applications with consistent performance.',
+    color: 'lime',
+    githubUrl: 'https://github.com/ChessCorner/cc-web-dev',
+    demoUrl: 'https://www.chesscornerofficial.com',
+    status: 'Live',
+    version: 'v2.4.1',
+    license: 'MIT',
+    repo: 'private',
+  },
+
+  {
+    id: 'mlops-fd',
+    category: 'AI/ML',
+    title: 'MLOps Fraud Detection',
+    tagline: 'End-to-End ML pipeline for fraud detection with Apache Airflow, Kafka and MLflow',
+    description:
+      'A comprehensive MLOps pipeline for real-time fraud detection in financial transactions. Implements CI/CD for ML models with automated retraining and monitoring.',
+    fullDescription:
+      'An enterprise-grade fraud detection system that processes real-time transaction data using machine learning models. Features automated model training, deployment, and monitoring with comprehensive logging and alerting.',
+    problem:
+      'Traditional fraud detection systems rely on static rules and manual updates, leading to high false positive rates and slow adaptation to new fraud patterns.',
+    solution:
+      'A complete MLOps solution using Apache Airflow for workflow orchestration, Kafka for real-time data streaming, MLflow for experiment tracking, and Docker for containerized deployments. Includes automated model retraining and A/B testing capabilities.',
+    features: [
+      'Real-time transaction monitoring and fraud detection',
+      'Automated ML model training and deployment pipeline',
+      'Kafka-based streaming for high-throughput data processing',
+      'MLflow experiment tracking and model registry',
+      'Automated model retraining with performance monitoring',
+      'A/B testing framework for model comparison',
+      'Comprehensive logging and alerting system',
+      'Dockerized microservices for scalability',
+      'CI/CD integration for ML workflows',
+      'Dashboard for model performance visualization',
+    ],
+    techStack: ['Apache Airflow', 'Kafka', 'MLflow', 'Docker', 'Python', 'FastAPI', 'PostgreSQL', 'Redis'],
+    challenges:
+      'Managing real-time data streams at scale while maintaining model accuracy. Implementing robust monitoring and alerting for model drift detection.',
+    learnings:
+      'Gained deep knowledge of MLOps practices and CI/CD pipelines for machine learning. Learned to build scalable, maintainable ML systems with proper version control and monitoring.',
+    color: 'fuchsia',
+    githubUrl: 'https://github.com/TheErujeje/fraud-detection-mlops.git',
+    demoUrl: '#',
+    status: 'Live',
+    version: 'v1.2.0',
+    license: 'Apache 2.0',
+    repo: 'public',
+  },
+  {
+    id: 'portfolio-website',
+    category: 'Full Stack',
+    title: 'My Portfolio',
+    tagline: 'You are literally looking at it right now.',
+    description:
+      'A retro terminal-inspired developer portfolio built with Next.js 14, TypeScript, and Framer Motion. Features category-filtered project browsing, per-project deep-dive pages, and a dark/light theme.',
+    fullDescription:
+      'A fully custom portfolio site with a retro-terminal aesthetic. Built to avoid generic templates and give each project the space it deserves — including problem/solution breakdowns, tech stack details, and dev logs. Deployed on Vercel with instant global edge delivery.',
+    problem:
+      'Generic portfolio templates make every developer look the same. They bury project depth behind a thumbnail and a one-liner, and offer no room for the reasoning behind the work.',
+    solution:
+      'A ground-up custom build using Next.js App Router and TypeScript. Each project is a full data object with its own detail page. Framer Motion handles smooth transitions, and a category selector lets visitors filter by domain (Full Stack, AI/ML) without a page reload.',
+    features: [
+      'Retro terminal-inspired UI with dark and light mode',
+      'Category-filtered project grid (Full Stack / AI/ML)',
+      'Per-project detail pages with problem, solution, and dev log',
+      'Public/private repo awareness — SOURCE_CODE button disabled for private repos',
+      'Animated hero section with typewriter-style tagline',
+      'Framer Motion page and scroll animations',
+      'Fully responsive across mobile, tablet, and desktop',
+      'Deployed on Vercel with edge CDN',
+    ],
+    techStack: ['Next.js 14', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vercel'],
+    challenges:
+      'Designing a UI that feels distinct without sacrificing readability. Structuring project data so adding a new project is a single object — no new components, no new routes.',
+    learnings:
+      'Learned how much personality a constrained color palette and a consistent type system can carry. Reinforced that the best abstractions are the ones you notice least.',
+    color: 'cyan',
+    githubUrl: 'https://github.com/TheErujeje/jejeportfolio',
+    demoUrl: 'self',
+    status: 'Live',
+    version: 'v1.0.0',
+    license: 'MIT',
+    repo: 'public',
+  }
 ]

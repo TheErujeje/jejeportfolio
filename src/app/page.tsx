@@ -21,6 +21,13 @@ export default function Home() {
     }
   }, [])
 
+  useEffect(() => {
+    if (showOtherSections && window.location.hash) {
+      const el = document.querySelector(window.location.hash)
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    }
+  }, [showOtherSections])
+
   const handleAnimationComplete = () => {
     sessionStorage.setItem('hasVisitedHome', 'true')
     setShowOtherSections(true)

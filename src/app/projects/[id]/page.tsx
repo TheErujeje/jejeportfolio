@@ -58,7 +58,7 @@ export default function ProjectDetail() {
       <nav className="fixed top-0 w-full z-40 px-6 py-4 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <Link
-            href="/"
+            href="/#projects"
             className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors font-mono"
           >
             <ArrowLeft size={20} />
@@ -109,16 +109,28 @@ export default function ProjectDetail() {
           }}
           className="flex gap-4 mb-20"
         >
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 hover:border-zinc-600 text-white font-mono rounded transition-all hover:-translate-y-1"
-          >
-            <Github size={20} />
-            SOURCE_CODE
-          </a>
-          {project.status === 'Live' ? (
+          {project.repo === 'public' ? (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 hover:border-zinc-600 text-white font-mono rounded transition-all hover:-translate-y-1"
+            >
+              <Github size={20} />
+              SOURCE_CODE
+            </a>
+          ) : (
+            <div className="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-zinc-600 font-mono rounded cursor-not-allowed opacity-60">
+              <Github size={20} />
+              PRIVATE_REPO
+            </div>
+          )}
+          {project.demoUrl === 'self' ? (
+            <div className={`flex items-center gap-2 px-6 py-3 ${bgColors[project.color]} text-zinc-900 font-bold font-mono rounded cursor-default`}>
+              <ExternalLink size={20} />
+              YOU&apos;RE_ALREADY_HERE
+            </div>
+          ) : project.status === 'Live' ? (
             <a
               href={project.demoUrl}
               target="_blank"
